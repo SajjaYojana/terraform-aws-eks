@@ -9,7 +9,7 @@ module "db" {
 }
 
 module "ingress" {
-  source         = "git::https://https://github.com/SajjaYojana/terraform-aws-securitygroup.git?ref=main"
+  source         = "git::https://github.com/SajjaYojana/terraform-aws-securitygroup.git?ref=main"
   project_name = var.project_name
   environment = var.environment
   sg_description = "SG for Ingress controller"
