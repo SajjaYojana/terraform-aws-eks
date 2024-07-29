@@ -8,7 +8,7 @@ resource "aws_key_pair" "eks" {
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "~> 20.0 , >= 4.33.0, < 5.0.0"
+  version = "> 20.0.0"
   #cluster_service_ipv4_cidr = var.cluster_service_ipv4_cidr
   cluster_name    = "${var.project_name}-${var.environment}"
   cluster_version = "1.29"
