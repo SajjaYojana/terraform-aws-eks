@@ -9,7 +9,7 @@ module "db" {
 }
 
 module "ingress" {
-  source         = "git::https://github.com/SajjaYojana/terraform-aws-securitygroup.git?ref=main"
+  source         = "git::https://github.com/SajjaYojana/terraform-aws-securitygroup.git"
   project_name = var.project_name
   environment = var.environment
   sg_description = "SG for Ingress controller"
@@ -19,7 +19,7 @@ module "ingress" {
 }
 
 module "cluster" {
-  source         = "git::https://github.com/SajjaYojana/terraform-aws-securitygroup.git?ref=main"
+  source         = "git::https://github.com/SajjaYojana/terraform-aws-securitygroup.git"
   project_name = var.project_name
   environment = var.environment
   sg_description = "SG for EKS Control plane"
@@ -29,7 +29,7 @@ module "cluster" {
 }
 
 module "node" {
-  source         = "https://github.com/SajjaYojana/terraform-aws-securitygroup.gitref=main"
+  source         = "https://github.com/SajjaYojana/terraform-aws-securitygroup.git"
   project_name = var.project_name
   environment = var.environment
   sg_description = "SG for EKS node"
