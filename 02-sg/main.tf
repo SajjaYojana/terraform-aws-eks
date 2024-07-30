@@ -9,7 +9,7 @@ module "db" {
 }
 
 module "ingress" {
-  source         = "git::https://github.com/SajjaYojana/terraform-aws-securitygroup.git?ref=main"
+  source         = "git::https://github.com/daws-76s/terraform-aws-security-group.git?ref=main"
   project_name = var.project_name
   environment = var.environment
   sg_description = "SG for Ingress controller"
@@ -19,7 +19,7 @@ module "ingress" {
 }
 
 module "cluster" {
-  source         = "git::https://github.com/SajjaYojana/terraform-aws-securitygroup.git?ref=main"
+  source         = "git::https://github.com/daws-76s/terraform-aws-security-group.git?ref=main"
   project_name = var.project_name
   environment = var.environment
   sg_description = "SG for EKS Control plane"
@@ -29,7 +29,7 @@ module "cluster" {
 }
 
 module "node" {
-  source         = "git::https://github.com/SajjaYojana/terraform-aws-securitygroup.git?ref=main"
+  source         = "git::https://github.com/daws-76s/terraform-aws-security-group.git?ref=main"
   project_name = var.project_name
   environment = var.environment
   sg_description = "SG for EKS node"
@@ -56,7 +56,7 @@ module "vpn" {
   vpc_id = data.aws_ssm_parameter.vpc_id.value
   common_tags = var.common_tags
   sg_name = "vpn"
-  #ingress_rules = var.vpn_sg_rules
+  # ingress_rules = var.vpn_sg_rules
 }
 
 resource "aws_security_group_rule" "bastion_public" {
@@ -158,3 +158,4 @@ resource "aws_security_group_rule" "node_ingress" {
   source_security_group_id = module.ingress.sg_id
   security_group_id = module.node.sg_id
 }
+

@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket = "daws-remote"
-    key    = "aws-eks"
+    key    = "expense-dev-ingress-alb"
     region = "us-east-1"
     dynamodb_table = "daws-remote"
   }
